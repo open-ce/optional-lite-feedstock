@@ -12,9 +12,6 @@ source:
 
 build:
   number: 1
-  ignore_run_exports:
-    - libgcc-ng
-    - libstdcxx-ng
 
 requirements:
   build:
@@ -29,10 +26,7 @@ requirements:
     # Use pins to control cos6/cos7 match
     - libgcc-ng  {{ libgcc }}
     - libstdcxx-ng  {{ libstdcxx }}
-  run:
-    # Use pins to control cos6/cos7 match
-    - libgcc-ng  {{ libgcc }}
-    - libstdcxx-ng  {{ libstdcxx }}
+
 test:
   commands:
     - test -f $PREFIX/include/nonstd/optional.hpp
