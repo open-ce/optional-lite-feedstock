@@ -11,21 +11,14 @@ source:
   sha256: 49b9deac842b3698fc9011b7678f943b4e36136e2ab711f535c1961ff2746e14
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
-    - {{ compiler('c') }}      # [ppc_arch != "p10"]
-    - {{ compiler('cxx') }}    # [ppc_arch != "p10"]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake {{ cmake }}
     - ninja {{ ninja }}
-    # Use pins to control cos6/cos7 match
-    - libgcc-ng  {{ libgcc }}                           # [x86_64 and c_compiler_version == "7.2.*"]
-    - libstdcxx-ng  {{ libstdcxx }}                     # [x86_64 and c_compiler_version == "7.2.*"]
-  host:
-    # Use pins to control cos6/cos7 match
-    - libgcc-ng  {{ libgcc }}                           # [x86_64 and c_compiler_version == "7.2.*"]
-    - libstdcxx-ng  {{ libstdcxx }}                     # [x86_64 and c_compiler_version == "7.2.*"]
 
 test:
   commands:
